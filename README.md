@@ -42,6 +42,9 @@ $ git clone <https://github.com/jhony2488/ReservApp-Front-End>
 # Acesse a pasta do projeto no terminal/cmd
 $ cd ReservApp-Front-End
 
+# Crie o arquivo .env e configure ele semelhante a o .env.exemplo
+$ touch .env
+
 # Instale as dependências
 $ npm install || yarn install
 ```
