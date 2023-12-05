@@ -20,8 +20,6 @@
 
 - [Storybook](#storybook)
 
-- [Testes](#-testes)
-
 - [Tecnologias](#-tecnologias)
 
 
@@ -40,8 +38,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 # Clone este repositório
 $ git clone <https://github.com/jhony2488/ReservApp-Front-End>
+
 # Acesse a pasta do projeto no terminal/cmd
 $ cd ReservApp-Front-End
+
 # Instale as dependências
 $ npm install || yarn install
 ```
@@ -64,7 +64,6 @@ $ npm run start || yarn start
 # execute o storybook
 $ npm run storybook || yarn storybook
 # O servidor inciará na porta:6006 - acesse <http://localhost:6006/?path=#>
-$ 
 ```
 
 <h2 id="tecnologias">🛠 Tecnologias</h2>
