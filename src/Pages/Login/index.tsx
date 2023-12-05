@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Typography, Container, Box,  Button } from '@material-ui/core';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,7 +12,7 @@ import { useStyles } from './style';
 export default function Login() {
     const classes = useStyles();
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    const { handleSubmit, formState: { errors },control } = useForm({
         resolver: yupResolver(schemaLogin),
     });
 
@@ -45,13 +45,13 @@ export default function Login() {
                         <label htmlFor="input-email">
                             Email
                         </label>
-                        <Input id="input-email"  placeholder="jhonata@email.com"  {...register('email')} />
-
+                        <Input id="input-email" control={control} nameInput={'email'}  placeholder="jhonata@email.com"   />
+                        <p className={classes.errorMessage}>{errors.email?.message}</p>
                         <label htmlFor="input-password">
                             Password
                         </label>
-                        <Input id="input-password" placeholder="***********" {...register('password')} />
-
+                        <Input id="input-password" placeholder="***********" type="password" hintText="Password" control={control} nameInput={'password'} />
+                        <p className={classes.errorMessage}>{errors.password?.message}</p>
                         <div className={classes.containerButtons}>
                             <Button variant='contained' color='primary' type='submit'>
                                 Fazer Login

@@ -36,6 +36,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
     display: 'grid',
     gap:'8px',
     marginTop: '12px'
+  },
+  errorMessage:{
+    color: 'red',
+    fontSize: '12px',
   }
 }));
 
