@@ -1,7 +1,80 @@
+export const mockedIncentives:any = [
+  {
+    incentive_id: 3,
+    title: 'Desconto de 40%',
+    description: 'Desconto de 40% bla bla bla',
+    type: 'desconto',
+  },
+  {
+    incentive_id: 4,
+    title: 'Desconto de 20%',
+    description: 'Desconto de 20% bla bla bla',
+    type: 'desconto',
+  },
+];
 
-
-export const mockedTasks = [
-  { id: 1, title: 'Aprender React', completed: true },
-  { id: 2, title: 'Estudar NodeJS', completed: false },
-  { id: 3, title: 'Praticar TypeScript', completed: false },
+export const mockedReservations:any = [
+  {
+    reservation_id: 2,
+    date: '02/12/2023',
+    hour: '15:00',
+    number_peoples: '4',
+    name_contact: 'Eduarda Liman',
+    contact: '81994880190',
+    active: null,
+  },
+  {
+    reservation_id: 6,
+    date: '02/12/2023',
+    hour: '16:00',
+    number_peoples: '4',
+    name_contact: 'Eduarda Liman',
+    contact: '81994880190',
+    active: false,
+  },
+  {
+    reservation_id: 8,
+    date: '04/12/2023',
+    hour: '16:00:00',
+    number_peoples: '4',
+    name_contact: 'Eduarda Liman',
+    contact: '81994880190',
+    active: true,
+  },
+  {
+    reservation_id: 9,
+    date: '04/12/2023',
+    hour: '18:00:00',
+    number_peoples: '4',
+    name_contact: 'Eduarda Liman',
+    contact: '81994880190',
+    active: true,
+  },
+  {
+    reservation_id: 7,
+    date: '04/12/2023',
+    hour: '16:00:00',
+    number_peoples: '4',
+    name_contact: 'Eduarda Liman',
+    contact: '81994880190',
+    active: false,
+  },
+  {
+    reservation_id: 10,
+    date: '04/12/2023',
+    hour: '18:00:00',
+    number_peoples: '4',
+    name_contact: 'Eduarda Liman',
+    contact: '81994880190',
+    active: true,
+  },
+  {
+    reservation_id: 11,
+    date: '04/12/2023',
+    hour: '18:00:00',
+    number_peoples: '4',
+    name_contact: 'Eduarda Liman',
+    contact: '81994880190',
+    active: true,
+  },
 ];
