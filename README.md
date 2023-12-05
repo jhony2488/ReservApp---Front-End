@@ -1,5 +1,5 @@
 <h1 align="center" id="">
-   App de tarefas Front End
+   App de Reservas para restaurante Front End
 </h1>
 
 
@@ -9,8 +9,6 @@
 - [Sobre](#)
 
 - [Tabela de Conteudo](#tabela-de-conteudo)
-
-- [Features](#features)
 
 - [Como usar](#como-usar)
 
@@ -29,17 +27,6 @@
 
 <!--te-->
 
-<h2  id="features">  
-  Features
-</h2>
-
-- [x] Configurar style guide.
-- [x] Adicionado tipagens.
-- [x] Criado listagem de tarefas.
-- [x] Fazer integração do CRUD com o back end
-- [x] Criação de pagina de erro 404.
-- [x] Aplicação de documentação de componentes com storybook.
-
 <h2>Como usar</h2>
 
 <h3>Pré-requisitos</h3>
@@ -52,11 +39,9 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/jhony2488/desafio-app-tasks>
+$ git clone <https://github.com/jhony2488/ReservApp-Front-End>
 # Acesse a pasta do projeto no terminal/cmd
-$ cd desafio-app-tasks
-# Acesse a pasta do projeto no terminal/cmd
-$ cd client
+$ cd ReservApp-Front-End
 # Instale as dependências
 $ npm install || yarn install
 ```
@@ -80,15 +65,6 @@ $ npm run start || yarn start
 $ npm run storybook || yarn storybook
 # O servidor inciará na porta:6006 - acesse <http://localhost:6006/?path=#>
 $ 
-```
-
-<h3 id="teste">🎲 Teste</h3>
-
-```bash
-# execute os testes com jest
-$ npm run test-jest || yarn test-jest
-# execute os testes com react-script
-$ npm run test || yarn test
 ```
 
 <h2 id="tecnologias">🛠 Tecnologias</h2>
