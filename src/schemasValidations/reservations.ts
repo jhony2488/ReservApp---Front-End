@@ -5,5 +5,5 @@ export const schemaReservation = yup.object().shape({
   hour: yup.string().required('Insira uma hora'),
   numberPeoples: yup.number().required('Insira o número de pessoA para a reserva'),
   inputNameContact:  yup.string().required('Insira um nome para contato'),
-  inputContact:  yup.string().required('Insira um número de telefone para contato'),
+  inputContact: yup.string().required('Insira um número de telefone para contato'),
 });
