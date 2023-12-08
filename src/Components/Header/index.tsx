@@ -7,7 +7,7 @@ import {
     Toolbar,
     Container,
 } from '@material-ui/core';
-import { Menu as MenuIcon, Close } from '@material-ui/icons';
+import { Menu as MenuIcon, Close, ExitToApp } from '@material-ui/icons';
 import { useStyles } from './style';
 
 export default function Header() {
@@ -18,6 +18,11 @@ export default function Header() {
     const [isOpenNav, setIsOpenNav] = useState(true);
 
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+
+    const LogoutUser=()=>{
+        localStorage.removeItem('token-login');
+        window.location.href ='/';
+    };
 
     useEffect(() => {
         const token: string = localStorage.getItem('token-login') || '';
@@ -33,7 +38,7 @@ export default function Header() {
     return (
         <>
             <AppBar position="static" className={classes.root}>
-                <Container>
+                <Container className={classes.rootWrapper}>
                     {isOpenNav && <ul className={classes.nav}>
                         {isTabletOrMobile && <IconButton
                             edge="start"
@@ -50,9 +55,11 @@ export default function Header() {
                                 Fazer Reserva
                             </a>
                         </li>
-                        <li className={classes.itemNav}>
-                            <a className={classes.linkNav} href="/login">Login</a>
-                        </li>
+                      {
+                        !isLogged &&   <li className={classes.itemNav}>
+                        <a className={classes.linkNav} href="/login">Login</a>
+                    </li> 
+                      }
                         {
                             isLogged ? <>
                                 <li className={classes.itemNav}>
@@ -65,6 +72,20 @@ export default function Header() {
                                 : <></>
                         }
                     </ul>}
+
+                    { isLogged &&
+                        <Toolbar>
+                        <IconButton
+                            edge="start"
+                            className={classes.menuButton}
+                            color="inherit"
+                            aria-label="menu"
+                            onClick={() => LogoutUser()}
+                        >
+                            <ExitToApp />
+                        </IconButton>
+                    </Toolbar>
+                    }
 
                     {
                         isTabletOrMobile && <Toolbar>

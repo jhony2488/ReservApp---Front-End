@@ -12,6 +12,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
     right: 14,
     top: '1%'
   },
+  rootWrapper:{
+    display: 'flex',
+  },
   title: {
     flexGrow: 1,
   },

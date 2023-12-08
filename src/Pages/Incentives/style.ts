@@ -2,7 +2,8 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) => ({
   main: {
-
+    display: 'grid',
+    justifyItems: 'center',
   },
   root: {
     flexGrow: 1,
@@ -16,34 +17,35 @@ export const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '32px',
     textAlign: 'center',
   },
-  box:{
+  box: {
     display: 'flex',
     'justify-content': 'center',
     'align-items': 'center',
     width: '100%',
     height: '100vh',
   },
-  boxWrapper:{
+  boxWrapper: {
     background: 'white',
     display: 'grid',
     padding: '16px',
-    gap:'12px'
+    gap: '12px',
   },
-  titleModal:{
+  titleModal: {
     alignItem: 'center',
   },
-  containerButtons:{
+  containerButtons: {
     display: 'grid',
-    gap:'8px'
+    gap: '8px',
+    marginTop: '12px'
   },
-  containerInput:{
+  containerInput: {
     display: 'grid',
-    gap: '4px'
+    gap: '4px',
   },
-  errorMessage:{
+  errorMessage: {
     color: 'red',
     fontSize: '12px',
-  }
+  },
 }));
 
 export default useStyles;

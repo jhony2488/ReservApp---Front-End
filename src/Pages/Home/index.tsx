@@ -92,7 +92,7 @@ export default function Home() {
                             </ButtonGroup>
 
                             <Typography id="modal-modal-title" className={classes.titleModal} variant="h6" component="h3">
-                                Horários com {typeof incentives?.incentives === 'object' ? incentives?.incentives.title ? incentives?.incentives.title : '' : incentives?.incentives[0].title}
+                                Horários com { incentives?.incentives ? typeof incentives?.incentives === 'object' ? incentives?.incentives[0] ? incentives?.incentives[0].title : '' : incentives?.incentives[0].title : ''}
                             </Typography>
 
                             <ButtonGroup variant="contained" aria-label="outlined primary button group">

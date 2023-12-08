@@ -22,26 +22,24 @@ export const getIncentives = (email: string, id?: number): Promise<AxiosResponse
 };
 
 export const setIncentive = ({ title, description, type }: PropsIncentives, email: string): Promise<AxiosResponse> => {
-    return api.post('/incentives', {
+    return api.post('/incentives',{
+        title, description, type
+    }, {
         headers: {
             Authorization: process.env.REACT_APP_API_KEY,
             email,
-        },
-        data: {
-            title, description, type
-        }
+        }, 
     });
 };
 
 export const updateIncentive = ({ title, description, type,incentive_id }: PropsIncentives, email: string): Promise<AxiosResponse> => {
-    return api.put(`/incentives/${incentive_id}`, {
+    return api.put(`/incentives/${incentive_id}`,{
+        title, description, type
+    }, {
         headers: {
             Authorization: process.env.REACT_APP_API_KEY,
             email
         },
-        data: {
-            title, description, type
-        }
     });
 };
 

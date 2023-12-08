@@ -42,7 +42,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     alignItem: 'center',
   },
   containerButtons:{
-    display: 'grid',
+    display: 'flex',
     gap:'8px',
     marginTop: '10px'
   },

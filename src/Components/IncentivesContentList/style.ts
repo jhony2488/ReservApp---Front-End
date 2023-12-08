@@ -34,8 +34,7 @@ export const searchStyles = makeStyles((theme: Theme) => {
         cardContent:{
             display: 'grid',
             'justify-items': 'center',
-            'align-items': 'center',
-            gridTemplateColumns:'2.5fr 1fr'
+            'align-items': 'center'
         },
     });
 });

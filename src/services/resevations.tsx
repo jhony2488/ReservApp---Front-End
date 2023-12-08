@@ -50,35 +50,32 @@ export const setReservations = ({ date, hour, name_contact, number_peoples, cont
     const filter = `?priority=${priority}`;
 
     if (priority) {
-        return api.post(`/reservations${filter}`, {
+        return api.post(`/reservations${filter}`,{
+            date, hour, name_contact, number_peoples, contact
+        }, {
             headers: {
                 Authorization: process.env.REACT_APP_API_KEY,
             },
-            data: {
-                date, hour, name_contact, number_peoples, contact
-            }
         });
     }
-    return api.post('/reservations', {
+    return api.post('/reservations',{
+        date, hour, name_contact, number_peoples, contact
+    }, {
         headers: {
             Authorization: process.env.REACT_APP_API_KEY,
-        },
-        data: {
-            date, hour, name_contact, number_peoples, contact
-        }
+        }, 
     });
    
 };
 
-export const updateReservations = ({ date, hour, name_contact, number_peoples, contact }: PropsReservations, id: number, email: string): Promise<AxiosResponse> => {
-    return api.put(`/reservations/${id}`, {
+export const updateReservations = ({ date, hour, name_contact, number_peoples, contact, active }: PropsReservations, id: number, email: string): Promise<AxiosResponse> => {
+    return api.put(`/reservations/${id}`,{
+        date, hour, name_contact, number_peoples, contact, active
+    }, {
         headers: {
             Authorization: process.env.REACT_APP_API_KEY,
             email
         },
-        data: {
-            date, hour, name_contact, number_peoples, contact
-        }
     });
 };
 

@@ -27,6 +27,8 @@ export const searchStyles = makeStyles((theme: Theme) => {
         },
         textNotContent: {
             marginTop: '16px',
+            fontSize: '16px',
+            color: 'gray'
         },
         spanTextContent: {
             marginTop: '8px',

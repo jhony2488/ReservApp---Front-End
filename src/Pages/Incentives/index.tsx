@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useState, useEffect ,ChangeEvent} from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Typography, Container, Modal, Box, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { getIncentives, updateIncentive, deleteIncentive, setIncentive as setIncentiveItem } from '../../services/incentives';
 import { IncentivesContentList, Input } from '../../Components';
@@ -26,7 +26,7 @@ export default function Incentives() {
 
     const getIncentivesDB = async () => {
 
-        await getIncentives(getEmailUser()).then((reservations: { data: { result: []; };}) => {
+        await getIncentives(getEmailUser()).then((reservations: { data: { result: []; }; }) => {
             setIncentives(reservations.data.result);
         });
     };
@@ -97,9 +97,16 @@ export default function Incentives() {
         await deleteIncentive(id, getEmailUser()).then((response) => {
             if (response.data.message === 'Incentivo deletado com sucesso') {
                 alert(response.data.message);
+                getIncentivesDB();
             }
         }).catch((error) => {
             console.error(error);
+        });
+    };
+
+    const changeInput = (key: string, value: string | boolean) => {
+        setIncentive((prevState: any) => {
+            return { ...prevState, [key]: value };
         });
     };
 
@@ -138,10 +145,8 @@ export default function Incentives() {
                             <label htmlFor="input-title">
                                 Titulo
                             </label>
-                            <Input value={incentive?.title || ''} onChange={(value: {target:{value:string}}) => {
-                                incentive.title = value.target.value;
-                                setIncentive(incentive);
-
+                            <Input valueInput={incentive?.title || ''} onChange={(value: { target: { value: string } }) => {
+                                changeInput('title', value.target.value);
                             }} placeholder="Titulo do Incentivo" id="input-title" />
                             <p className={classes.errorMessage}>{errors.title}</p>
                         </div>
@@ -150,10 +155,8 @@ export default function Incentives() {
                             <label htmlFor="input-description">
                                 Descrição
                             </label>
-                            <Input value={incentive?.title || ''} onChange={(value: {target:{value:string}}) => {
-                                incentive.description = value.target.value;
-                                setIncentive(incentive);
-
+                            <Input valueInput={incentive?.description || ''} onChange={(value: { target: { value: string } }) => {
+                                changeInput('description', value.target.value);
                             }} placeholder="Descrição do Incentivo" id="input-description" />
                             <p className={classes.errorMessage}>{errors.description}</p>
                         </div>
@@ -163,32 +166,34 @@ export default function Incentives() {
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                value={incentive?.title || ''}
-                                onChange={(value: ChangeEvent<{ name?: string | undefined; value: unknown; }>) => {
-                                    incentive.description = value.target.value || '';
-                                    setIncentive(incentive);
+                                value={incentive?.type || ''}
+                                onChange={(value: any) => {
+                                    changeInput('type', value.target.value || '');
                                 }}
                                 label="Tipo"
                             >
-                                <MenuItem value={'desconto'}>Desconto</MenuItem>
-                                <MenuItem value={'sobremesa grátis'}>Sobremesa grátis</MenuItem>
+                                <MenuItem style={{ color: 'black' }} value={'desconto'}>Desconto</MenuItem>
+                                <MenuItem style={{ color: 'black' }} value={'sobremesa grátis'}>Sobremesa grátis</MenuItem>
                             </Select>
                         </FormControl>
-
+                        <div className={classes.containerButtons}>
+                            <Button variant='contained' color='primary' onClick={() => isEdit ? handleSubmitEdit(incentive) : handleCreateIncentive(incentive)}>
+                               { isEdit ? 'Atualizar o incentivo' : 'Criar o incentivo' } 
+                            </Button>
+                            <Button variant='contained' style={{ backgroundColor: 'red', color: 'white' }} onClick={() => closeModal()}>
+                                Sair
+                            </Button>
+                        </div>
                     </Box>
-                    <div className={classes.containerButtons}>
-                        <Button variant='contained' color='primary' onClick={() => isEdit ? handleSubmitEdit(incentive) : handleCreateIncentive(incentive)}>
-                            Atualizar o incentivo
-                        </Button>
-                    </div>
+
                 </Box>
             </Modal>
             <Container className={classes.main}>
                 <Typography className={classes.title}>
                     Incentivos/Descontos
                 </Typography>
-                <Button variant='contained' color='primary' onClick={() => openModalCreate()}>
-                    +
+                <Button variant='contained' style={{ marginTop: '12px' }} color='secondary' onClick={() => openModalCreate()}>
+                    + Adicionar
                 </Button>
                 <IncentivesContentList incentives={incentives} openModalEdit={openModalEdit} handleDelete={handleDeleteIncentive} />
             </Container>

@@ -10,13 +10,13 @@ import { inputStyles } from './style';
 export interface Props { isMask?: boolean; mask?: string; maskChar?: string; placeholder: string; id: string; type?: string; value?: string; onChange?: any; control?: any; nameInput?: string; valueInput?: string; hintText?: string; }
 
 
-export default function Input({ control, nameInput, isMask = false, mask, maskChar = ' ',valueInput, onChange, id, ...rest }: Props) {
+export default function Input({ control, nameInput, isMask = false, mask, maskChar = ' ', valueInput, onChange, id, ...rest }: Props) {
     const { search, input } = inputStyles();
 
     return (<>
         {control ? <Controller
             control={control}
-            name={nameInput ? nameInput : '' }
+            name={nameInput ? nameInput : ''}
             render={({ field: { onChange, onBlur, value, ref } }) => (
                 <FormControl className={search}>
 
@@ -25,7 +25,7 @@ export default function Input({ control, nameInput, isMask = false, mask, maskCh
                         {...rest}
                         maskChar={maskChar}
                         onChange={onChange}
-                        value={control ?  value: valueInput}
+                        value={control ? value : valueInput}
                     >
                         {() => <TextField
                             size="small"
@@ -60,6 +60,8 @@ export default function Input({ control, nameInput, isMask = false, mask, maskCh
                 mask={mask}
                 {...rest}
                 maskChar={maskChar}
+                onChange={onChange}
+                value={valueInput}
             >
                 {() => <TextField
                     size="small"
@@ -67,7 +69,6 @@ export default function Input({ control, nameInput, isMask = false, mask, maskCh
                     variant="outlined"
                     id={id}
                     onChange={onChange}
-                    value={valueInput}
                     color="primary"
                     InputProps={{
                         classes: { input }

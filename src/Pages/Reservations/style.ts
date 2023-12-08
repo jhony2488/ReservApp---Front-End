@@ -32,8 +32,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
   titleModal:{
     alignItem: 'center',
   },
+  modal:{
+    width: '50vw'
+  },
   containerButtons:{
-    display: 'grid',
+    display: 'flex',
     gap:'8px'
   },
   containerInput:{
